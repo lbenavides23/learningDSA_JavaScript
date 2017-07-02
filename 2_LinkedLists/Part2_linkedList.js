@@ -1,12 +1,25 @@
-// linked list continue
+/**
+ *
+ * Linked List - list of elements called nodes that are connected
+ * together in a single file line. There are two types of Linked List
+ * 1) singlely - reference to the next node
+ * 2) doublely - reference to next node (tail) and previous node (head)
+ *    doublely LinkedList will have tw0 properties
+ *		1) head (previous)
+ *		2) tail (next)
+ *
+**/
 
-// Linked List constructor function
+/********* Doublely Linked List *********/
+
+
+// Step 1: create Linked List constructor function.
 function linkedList() {
 	this.head = null;
 	this.tail = null;
 }
 
-// Node constructor function
+// Step 2: create Node constructor function.
 function Node(value, next, prev){
 	this.value = value;
 	this.next = next;
@@ -14,7 +27,7 @@ function Node(value, next, prev){
 }
 
 
-// add to head function or method through prototyping
+// Step 3: create Add To Head function or method through prototyping
 linkedList.prototype.addToHead = function(value){
 	var newNode = new Node(value, this.head, null); // first new node
 
@@ -33,7 +46,7 @@ var ll = new linkedList();
 // console.log(ll);
 
 
-// add to tail functional or method through prototyping
+// Step 4: create Add To Tail function or method through prototyping
 linkedList.prototype.addToTail = function(value){
 	var newNode = new Node(value, null, this.tail); // node added to tail
 
@@ -42,17 +55,17 @@ linkedList.prototype.addToTail = function(value){
 	this.tail = newNode;
 };
 
-var myLL = new linkedList();
+/** Testing addToTail
+ * var myLL = new linkedList();
+ * myLL.addToTail(10);
+ * myLL.addToTail(20);
+ * myLL.addToTail(30);
+ * console.log(myLL.tail.prev); // result 20
+ * console.log(myLL.tail.prev.prev); // result 10
+**/
 
-/*** Testing addToTail ***/
-// myLL.addToTail(10);
-// myLL.addToTail(20);
-// myLL.addToTail(30);
 
-// console.log(myLL.tail.prev); // result 20
-// console.log(myLL.tail.prev.prev); // result 10
-
-
+// Step 5: create Remove Head function
 LinkedList.prototype.removeHead = function() {
 	if (!this.head) return null; // if list is empty
 	var val = this.head.value; // 
@@ -62,16 +75,16 @@ LinkedList.prototype.removeHead = function() {
 	return val;
 };
 
-/*** Testing removeHead ***/
+/** Testing removeHead
+ * var ll = new LinkedList();
+ * ll.addToHead(1000);
+ * ll.addToHead(2000);
+ * ll.addToHead(3000);
+ * console.log(ll.removeHead()); // result 2000
+**/
 
-// var ll = new LinkedList();
-// ll.addToHead(1000);
-// ll.addToHead(2000);
-// ll.addToHead(3000);
 
-// console.log(ll.removeHead()); // result 2000
-
-
+// Step 6: create Remove Tail function
 LinkedList.prototype.removeTail = function() {
 	if (!this.tail) return null; // if list is empty
 	var val = this.tail.value; // 
@@ -81,18 +94,16 @@ LinkedList.prototype.removeTail = function() {
 	return val;
 };
 
-
-/*** Testing removeTail ***/
-
-// var ll = new LinkedList();
-// ll.addToTail("one");
-// ll.addToTail("two");
-// ll.addToTail("three");
-
-// console.log(ll.removeTail()); // result one
+/*** Testing removeTail
+ * var ll = new LinkedList();
+ * ll.addToTail("one");
+ * ll.addToTail("two");
+ * ll.addToTail("three");
+ * console.log(ll.removeTail()); // result one
+**/
 
 
-
+// Step 7 create Search Function
 LinkedList.prototype.search = function(searchValue){
 	var currentNode = this.head;
 	while(currentNode){
@@ -102,20 +113,17 @@ LinkedList.prototype.search = function(searchValue){
 	return null;
 };
 
-/*** Testing Search ***/
-
-//var myLL = new LinkedList();
-
-// myLL = addToHead(123);
-// myLL = addToHead(70);
-// myLL = addToHead('hello');
-// myLL = addToTail(19);
-
-// console.log(myLL.search(10)); //null
+/** Testing Search
+ * var myLL = new LinkedList();
+ * myLL = addToHead(123);
+ * myLL = addToHead(70);
+ * myLL = addToHead('hello');
+ * myLL = addToTail(19);
+ * console.log(myLL.search(10)); //null
+**/
 
 
-
-
+// Step 8 create Index Finder of a value
 LinkedList.prototype.indexOf = function(value){
 	var indexed = [];
 	var currentIndex = 0;
@@ -130,19 +138,17 @@ LinkedList.prototype.indexOf = function(value){
 	return indexes;
 };
 
-/*** Testing Search ***/
-
-// var myLL = new LinkedList();
-
-// myLL.addToTail(1);
-// myLL.addToTail(5);
-// myLL.addToTail(3);
-// myLL.addToTail(5);
-// myLL.addToTail(8);
-// myLL.addToTail(7)
-// myLL.addToTail(5);
-
-// console.log(myLL.indexOf(5));  //output [1,3,6]
+/** Testing Index Finder
+ * var myLL = new LinkedList();
+ * myLL.addToTail(1);
+ * myLL.addToTail(5);
+ * myLL.addToTail(3);
+ * myLL.addToTail(5);
+ * myLL.addToTail(8);
+ * myLL.addToTail(7)
+ * myLL.addToTail(5);
+ * console.log(myLL.indexOf(5));  //output [1,3,6]
+**/
 
 
 
